@@ -22,11 +22,11 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 
   let passwordLength = prompt("Please enter the number of characters between 8 and 128");
-   if (passwordLength >= 8 && passwordLength <= 128) {
+  if (passwordLength >= 8 && passwordLength <= 128) {
       alert("Character length has been selected");
-    } else if (passwordLength < 8 || passwordLength >128) {
-      alert("This is out of range. Number of characters should be between 8 and 128.");
-    }
+    } else {
+      prompt("Please enter the number of characters between 8 and 128");
+    } 
 
   let numbers = prompt("Do you want numbers? (y/n)");
     if (numbers === "y") {
