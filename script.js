@@ -4,7 +4,6 @@ var specialCharacters = " !#$%&'()*+,-./:;<=>?@]/^_`{|}~";
 var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXY";
 var lowerCases = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "1234567890";
-var totalCharacters = ''.concat(numbers, lowerCases, upperCases, specialCharacters);
 
 // Write password to the #password input
 function writePassword() {
@@ -23,11 +22,12 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 
   let passwordLength = prompt("Please enter the number of characters between 8 and 128");
-    if (passwordLength < 8 || passwordLength >128) {
-      alert("This is out of range. Number of characters should be between 8 and 128.", "enter between 8 and 128");
-    } else if (passwordLength >= 8 && passwordLength <= 128) {
+   if (passwordLength >= 8 && passwordLength <= 128) {
       alert("Character length has been selected");
+    } else if (passwordLength < 8 || passwordLength >128) {
+      alert("This is out of range. Number of characters should be between 8 and 128.");
     }
+
   let numbers = prompt("Do you want numbers? (y/n)");
     if (numbers === "y") {
       numbers = "1234567890";
@@ -35,8 +35,9 @@ function generatePassword() {
     } else if (numbers === "n") {
       numbers = "";
       alert("Numbers will not be included");
-    } else {
-      alert("This is wrong selection. Enter y or n", "y/n")
+    } else if (numbers !== "y"||"n"){
+      alert("This is wrong selection. Enter y or n", "y/n");
+      prompt("Do you want numbers? (y/n)");
     }
     
   let lowerCases = prompt("Do you want lower cases? (y/n)");
@@ -46,8 +47,8 @@ function generatePassword() {
     } else if (lowerCases === "n") {
       lowerCases = "";
       alert("lowerCases will not be included");
-    } else {
-      alert("This is wrong selection. Enter y or n", "y/n")
+    } else if (lowerCases !== "y"||"n"){
+      alert("This is wrong selection. Enter y or n", "y/n");
     }
 
   let upperCases = prompt("Do you want uppercases? (y/n)");
@@ -57,8 +58,8 @@ function generatePassword() {
     } else if (upperCases === "n") {
       upperCases = "";
       alert("Uppercases will not be included");
-    } else {
-      alert("This is wrong selection. Enter y or n", "y/n")
+    } else if (upperCases !== "y"||"n"){
+      alert("This is wrong selection. Enter y or n", "y/n");
     }
 
   let specialCharacters = prompt("Do you want special characters? (y/n)");
@@ -68,19 +69,27 @@ function generatePassword() {
     } else if (specialCharacters === "n") {
       specialCharacters = "";
       alert("Special characters will not be included");
-    } else {
+    } else if (specialCharacters !== "y"||"n") {
       alert("This is wrong selection. Enter y or n", "y/n")
     }
 
 // To verify values are correctly selected --
-  console.log(passwordLength, numbers, lowerCases, upperCases, specialCharacters);
-  console.log(totalCharacters);
+//  console.log(passwordLength, numbers, lowerCases, upperCases, specialCharacters);
+
+  var totalCharacters = ''.concat(numbers, lowerCases, upperCases, specialCharacters);
+
+// to make sure characters are correctly selected --
+// console.log(totalCharacters);
 
 // generate random password
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * totalCharacters.length);
-    password += totalCharacters.substring(randomNumber, randomNumber+1);
+
+  var result = "";
+
+  for (var i = 0; i < passwordLength; i++) {
+    var randomPass = Math.floor(Math.random() * totalCharacters.length);
+    result += totalCharacters.substring(randomPass, randomPass+1);
  }
  
+ return result;
 
 }
