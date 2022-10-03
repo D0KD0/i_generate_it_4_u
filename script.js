@@ -1,6 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+var specialCharacters = " !#$%&'()*+,-./:;<=>?@]/^_`{|}~";
+var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXY";
+var lowerCases = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "1234567890";
+var totalCharacters = ''.concat(numbers, lowerCases, upperCases, specialCharacters);
 
 // Write password to the #password input
 function writePassword() {
@@ -10,16 +14,10 @@ function writePassword() {
   passwordText.value = password;
 }
 
-
-
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
 
-var specialCharacters = " !#$%&'()*+,-./:;<=>?@]/^_`{|}~";
-var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXY";
-var lowerCases = "abcdefghijklmnopqrstuvwxyz";
-var numbers = "1234567890";
 
 // Prompts that come up after you click generate password
 function generatePassword() {
@@ -73,9 +71,16 @@ function generatePassword() {
     } else {
       alert("This is wrong selection. Enter y or n", "y/n")
     }
-  
+
+// To verify values are correctly selected --
   console.log(passwordLength, numbers, lowerCases, upperCases, specialCharacters);
-
-  var totalCharacters = ''.concat(numbers, lowerCases, upperCases, specialCharacters);
-
   console.log(totalCharacters);
+
+// generate random password
+  for (var i = 0; i <= passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * totalCharacters.length);
+    password += totalCharacters.substring(randomNumber, randomNumber+1);
+ }
+ 
+
+}
