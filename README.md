@@ -9,7 +9,7 @@ Start code was provided and my main role was to
 * Make genarated password visible on the display
 
 ## Screenshot
-<img src="./assets/images/screenshot.png" />
+<img src="./Assets/images/screenshot.png" />
 
 ## Screenshot
 During working on the assignment, I learned following things -
