@@ -40,6 +40,7 @@ while (true) {
     } else if (numbers === "n") {
       numbers = "";
       alert("Numbers will not be included");
+      break;
     } else if (numbers !== "y"||"n"){
       alert("This is wrong selection. Enter y or n", "y/n");
     }
@@ -89,6 +90,19 @@ while (true) {
       alert("This is wrong selection. Enter y or n", "y/n")
     }
   }
+
+while (true) {
+  warning = alert("Make sure you chose at least one option.");
+    if (numbers === "n" && lowerCases === "n" && upperCases === "n" && specialCharacters === "n") {
+      alert("You didn't choose any option. Please re-start.");
+      break;
+    } else {
+      alert("Your new password will be displayed soon. If you didn't choose any option, please restart.");
+      break;
+      }
+    }
+
+
 // To verify values are correctly selected --
 //  console.log(passwordLength, numbers, lowerCases, upperCases, specialCharacters);
 
@@ -107,5 +121,5 @@ while (true) {
   }
  
  return result;
- 
+
 }
